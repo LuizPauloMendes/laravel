@@ -34,6 +34,8 @@
       <a href="{{ url("books/$books->id/edit") }}">
           <button class="btn btn-dark" style="float: left">Editar</button>
       </a>
+      </div>
+      <div class="btn-group">
       <a href="{{ url("books/$books->id") }}">
           <form action={{route('books-destroy', ['id'=>$books->id]) }} method="POST">
           @csrf

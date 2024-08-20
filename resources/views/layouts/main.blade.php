@@ -16,15 +16,15 @@
         --bs-table-color: red;
         --bs-table-bg: rgb(50 50 200);
         table-layout: fixed; 
-        margin:0 auto;
+        margin: auto;
     }
     body{
         background:#ffff00;
         text-align:center;
     }
     
-    input[type=text], input[type=password], select {
-  width: 100%;
+    input[type=text], input[type=password], input[type=email], select {
+  width: 25%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -34,11 +34,12 @@
     button {
   background-color: #04AA6D;
   color: white;
-  padding: 14px 20px;
+  padding: 5px 20px;
   margin: 8px 0;
   border: none;
   cursor: pointer;
-  width: 100%;
+  width: auto;
+  font-size: auto;
     }
 </style>
  </body>
