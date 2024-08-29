@@ -10,30 +10,29 @@
  @yield('content')
   <style>
     .table, tr, td{
+        
         padding: 10px;
         text-align: center;
-        border: 1px solid rgb(160 160 160);
-        --bs-table-color: red;
-        --bs-table-bg: rgb(50 50 200);
+  
         table-layout: fixed; 
         margin: auto;
     }
     body{
-        background:#ffff00;
         text-align:center;
     }
     
     input[type=text], input[type=password], input[type=email], select {
+  border-radius: 10px;
   width: 25%;
-  padding: 12px 20px;
-  margin: 8px 0;
+  padding: 6px 10px;
+  margin: 5px 0;
   display: inline-block;
   border: 1px solid #ccc;
   box-sizing: border-box;
     }
-    button {
-  background-color: #04AA6D;
-  color: white;
+    .button {
+  border-radius: 10px;
+  color: auto;
   padding: 5px 20px;
   margin: 8px 0;
   border: none;
