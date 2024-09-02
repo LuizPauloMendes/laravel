@@ -20,7 +20,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
-                <a class="navbar-brand" href="{{ route('home') }}">Home</a>
+                <a class="navbar-brand" href="{{ route('home') }}">Início</a>
                 <a class="btn btn-primary" href="{{ route('login.index') }}">Login</a>
             </div>
         </nav>
@@ -45,6 +45,13 @@
         .form-element {
             width: 200px;
         }
+            .page{
+                width:20em;
+                position:relative;
+            }
+            input{
+                width:60%;
+        }
         </style>
   <input class="form-element" type="text" name="title" id="title" placeholder="Título: " value="{{ $book->title ?? '' }}"><br>
   <select class="form-element" name="id_user" id="id_user"><br>
@@ -56,8 +63,12 @@
   <input class="form-element" type="text" name="pages" id="pages" placeholder="Páginas: " value="{{ $book->pages ?? '' }}"><br>
   <input class="form-element" type="text" name="price" id="price" placeholder="Preço: " value="{{ $book->price ?? '' }}"><br>
   <input class="form-element" type="submit" value="@if(isset($book))EDITAR @else CADASTRAR @endif">
-  </form>   
+  </form>  
+  <style>
+        
+            </style>
             </div>
+            
         </header>
         
 </html>

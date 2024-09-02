@@ -19,14 +19,14 @@
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
-                <a class="navbar-brand" href="{{ route('home') }}">Home</a>
+                <a class="navbar-brand" href="{{ route('home') }}">Início</a>
                 <a class="btn btn-primary" href="{{route('login.index')}}">Login</a>
             </div>
         </nav>
         <!-- Masthead-->
         <header class="masthead">
             <div class="container position-relative">
-                 <div class="page-table">
+                 <div class="page">
             <div class="text-center mt-5">
 <h1>CRUD</h1>
 @csrf
@@ -54,17 +54,16 @@
       <td>{{ $books->title }}</td>
       <td>{{ $books->price }}</td>
       <td>{{ $user->name }}</td>
-
+<div>
     <td>
       <a href="{{ url("books/$books->id/edit") }}">
           <button class="btn btn-dark">Editar</button>
       </a>
-
       <a href="{{ url("books/$books->id") }}">
           <form action={{route('books-destroy', ['id'=>$books->id]) }} method="POST">
           @csrf
           @method('DELETE')
-          <button class="btn btn-danger" type="submit">Apagar</button>
+          <button class="btn btn-danger" type="submit" floatLeft>Apagar</button>
       </a>
       </form>
       </td>
@@ -74,8 +73,18 @@
   </tbody>
  
 </table>
-        
-                
+<style>
+        .page, .table{
+                width:38em;
+                position:relative;
+            }
+            .btn-dark{
+              float:left;
+            }
+            .btn-danger{
+              float:right;
+            } 
+      </style>          
             </div>
         </header>
     </body>
