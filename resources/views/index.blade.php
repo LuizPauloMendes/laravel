@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -30,9 +33,15 @@
             <div class="text-center mt-5">
 <h1>CRUD</h1>
 @csrf
+
+  
+@can('create, edit, delete')
   <a href="{{ url('books/create') }}">
+  
     <button>Cadastrar</button>
+    
   </a>
+  @endcan
 <table class="table table-striped">
   <thead class="thead-dark">
     <tr>
@@ -56,16 +65,22 @@
       <td>{{ $user->name }}</td>
 <div>
     <td>
+    @can('create, edit, delete')
       <a href="{{ url("books/$books->id/edit") }}">
           <button class="btn btn-dark">Editar</button>
       </a>
+      @endcan
+      @can('create, edit, delete')
+        
       <a href="{{ url("books/$books->id") }}">
-          <form action={{route('books-destroy', ['id'=>$books->id]) }} method="POST">
+          <form action={{route('books.destroy', ['id'=>$books->id]) }} method="POST">
           @csrf
           @method('DELETE')
           <button class="btn btn-danger" type="submit" floatLeft>Apagar</button>
+          @endcan
       </a>
       </form>
+  
       </td>
       </tr>
 
