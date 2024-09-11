@@ -90,14 +90,16 @@
 </table>
 <style>
         .page, .table{
-                width:38em;
+                width:40em;
                 position:relative;
             }
             .btn-dark{
               float:left;
+              padding:10px;
             }
             .btn-danger{
               float:right;
+              padding:-10px;
             } 
       </style>          
             </div>
