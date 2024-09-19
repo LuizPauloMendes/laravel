@@ -31,7 +31,7 @@
             <div class="container position-relative">
                  <div class="page">
             <div class="text-center mt-5">
-<h1>CRUD</h1>
+<h1>CARDÁPIO</h1>
 @csrf
 
   
@@ -42,14 +42,16 @@
     
   </a>
   @endcan
+  <a href="{{ url('/items') }}">
+  
+    <button>Fazer Pedido</button>
+    
+  </a>
 <table class="table table-striped">
   <thead class="thead-dark">
     <tr>
-      <th scope="col">id</th>
-      <th scope="col">titulo</th>
+      <th scope="col">Prato</th>
       <th scope="col">preço</th>
-      <th scope="col">autor</th>
-      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -59,10 +61,9 @@
       $user=$books->find($books->id)->relUsers;
   @endphp
       <tr>
-      <td>{{ $books->id }}</td>
       <td>{{ $books->title }}</td>
-      <td>{{ $books->price }}</td>
-      <td>{{ $user->name }}</td>
+      <td>{{ $books->price }},00</td>
+      
 <div>
     <td>
     @can('create, edit, delete')
@@ -88,6 +89,7 @@
   </tbody>
  
 </table>
+
 <style>
         .page, .table{
                 width:40em;

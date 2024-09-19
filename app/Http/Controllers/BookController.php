@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\ModelBook;
 use App\Models\User;
+use Laravel\Auth;
 use Termwind\Components\Raw;
 
 class BookController extends Controller
@@ -39,9 +40,7 @@ class BookController extends Controller
     {
         $cad=$this->objBook->create([
             'title'=>$request->title,
-            'pages'=>$request->pages,
             'price'=>$request->price,
-            'id_user'=>$request->id_user
         ]);
         if($cad){
             return redirect('books');
@@ -59,9 +58,7 @@ class BookController extends Controller
     {
         $this->objBook->where(['id'=>$id])->update([
             'title'=>$request->title,
-            'pages'=>$request->pages,
             'price'=>$request->price,
-            'id_user'=>$request->id_user
         ]);
         return redirect ('books');
     }
@@ -75,5 +72,12 @@ class BookController extends Controller
     {
         $book=$this->objBook->find($id);
         return view('show',compact('book'));
+    }
+ 
+    public function pedido()
+    {
+        $book=$this->objBook->all()->sortBy('id');
+        return view('pedido',compact('book'));
+        $user=$this->objUser->all()->sortBy('title');
     }
 }

@@ -9,6 +9,9 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    protected $user='user';
+
+    
     protected $fillable = [
         'name', 'email', 'admin', 'guest', 'password',
     ];

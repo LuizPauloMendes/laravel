@@ -53,14 +53,7 @@
                 width:60%;
         }
         </style>
-  <input class="form-element" type="text" name="title" id="title" placeholder="Título: " value="{{ $book->title ?? '' }}"><br>
-  <select class="form-element" name="id_user" id="id_user"><br>
-  <option value="">{{ $book->relUsers->id ??'' }}</option>
-  @foreach($users as $user)
-    <option value="{{ $user->id }}">{{ $user->name }}</option>
-  @endforeach
-  </select><br>
-  <input class="form-element" type="text" name="pages" id="pages" placeholder="Páginas: " value="{{ $book->pages ?? '' }}"><br>
+  <input class="form-element" type="text" name="title" id="title" placeholder="Prato: " value="{{ $book->title ?? '' }}"><br>
   <input class="form-element" type="text" name="price" id="price" placeholder="Preço: " value="{{ $book->price ?? '' }}"><br>
   <input class="form-element" type="submit" value="@if(isset($book))EDITAR @else CADASTRAR @endif">
   </form>  
