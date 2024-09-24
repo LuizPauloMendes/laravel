@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\ModelBook;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Laravel\Auth;
 use Termwind\Components\Raw;
 
@@ -41,7 +42,14 @@ class BookController extends Controller
         $cad=$this->objBook->create([
             'title'=>$request->title,
             'price'=>$request->price,
+            'image'=>$request->image,
         ]);
+      if($request->hasFile('image') && $request->image->isValid()){
+        flush();
+        $imagePath = $request->image->store('books');
+        $data['image'] = $imagePath;
+      }
+
         if($cad){
             return redirect('books');
         }
@@ -80,4 +88,5 @@ class BookController extends Controller
         return view('pedido',compact('book'));
         $user=$this->objUser->all()->sortBy('title');
     }
+    
 }

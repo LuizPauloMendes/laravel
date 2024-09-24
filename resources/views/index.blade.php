@@ -60,7 +60,12 @@
   @php
       $user=$books->find($books->id)->relUsers;
   @endphp
-      <tr>
+  
+      <td>
+      @if ($books->image)
+      <img src="{{ url("storage/{$books->image}") }}" alt="{{  $books->title}}" style=>
+      @endif
+      </td>
       <td>{{ $books->title }}</td>
       <td>{{ $books->price }},00</td>
       
@@ -92,7 +97,7 @@
 
 <style>
         .page, .table{
-                width:40em;
+                width:55em;
                 position:relative;
             }
             .btn-dark{
@@ -103,6 +108,9 @@
               float:right;
               padding:-10px;
             } 
+            img{
+              width: 150px;
+            }
       </style>          
             </div>
         </header>

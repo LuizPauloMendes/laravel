@@ -33,11 +33,11 @@
 
 <div>
 @if(isset($book))
-  <form id="formEdit" method="post" action="{{ url("books/$book->id") }}">
+  <form id="formEdit" method="post" action="{{ url("books/$book->id") }}" enctype="multpart/formdata">
   @method('PUT')
 
 @else
-  <form id="formCad" method="post" action="{{ url('books') }}">
+  <form id="formCad" method="post" action="{{ url('books') }}" enctype="multpart/formdata">
 
 @endif
   @csrf
@@ -53,8 +53,11 @@
                 width:60%;
         }
         </style>
+          <input class="form-element" type="file" name="image" id="image" placeholder="Imagem: " value="{{ $book->image ?? '' }}"><br>
+
   <input class="form-element" type="text" name="title" id="title" placeholder="Prato: " value="{{ $book->title ?? '' }}"><br>
   <input class="form-element" type="text" name="price" id="price" placeholder="Preço: " value="{{ $book->price ?? '' }}"><br>
+
   <input class="form-element" type="submit" value="@if(isset($book))EDITAR @else CADASTRAR @endif">
   </form>  
   <style>

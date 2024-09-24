@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('title');
             $table->integer('pages');
             $table->double('price', 10, 2);
+            $table->string('image');
             $table->timestamps();
         });
     }

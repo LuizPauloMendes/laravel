@@ -19,6 +19,8 @@ Route::get('/dashboard', [BookController::class, 'dashboard'])->name('books.dash
 // Home route
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
+Route::get('/map', [HomeController::class, 'map'])->name('map');
+
 
 
 // routes/web.php
