@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ItemController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContatoController;
 use App\Http\Controllers\PermissionController;
 use App\Models\User;
 
@@ -21,7 +22,10 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/map', [HomeController::class, 'map'])->name('map');
 
-
+Route::controller(ContatoController::class)->group(function(){
+    Route::get('/contato', 'index')->name('contato.create');
+    Route::post('/contato', 'store')->name('contato.register');
+});
 
 // routes/web.php
 
