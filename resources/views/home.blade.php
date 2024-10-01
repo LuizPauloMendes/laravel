@@ -21,7 +21,11 @@
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
                 <a class="navbar-brand" href="{{ route('home') }}">Início</a>
+                <a class="navbar-brand" href="{{ route('map') }}">Nossas Lojas</a>
+                <a class="navbar-brand" href="{{ route('about') }}">Sobre Nós</a>
+                 <a class="navbar-brand" href="{{ route('contato.create') }}">Contato</a>
                 <a class="btn btn-primary" href="{{ route('login.index') }}">Login</a>
+                
             </div>
         </nav>
         <!-- Masthead-->
@@ -32,9 +36,7 @@
                 <h1>Bem-vindo ao André Delivery</h1>
                 <a class="btn btn-primary" href="{{ route('books.index') }}">Ver Cardápio</a>
                 <p class="lead"></p>
-                <a class="btn btn-primary" href="{{ route('about') }}">Sobre Nós</a>
-                 <a class="btn btn-primary" href="{{ route('map') }}">Nossas Lojas</a>
-                 <a href="{{ route('contato.create') }}">contato</a>
+                 
                 
 
 
