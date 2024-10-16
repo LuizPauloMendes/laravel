@@ -66,42 +66,52 @@
 <body>
     <div class="container">
         <h1>Escolha seus itens</h1>
-        <form id="itemsForm">
-            @csrf
-            <table class="table">
-                <thead>
-                    <tr>
-                    <th></th>
-                        <th>Prato</th>
-                        <th>Preço</th>
-                        <th>Quantidade</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($items as $item)
-                        <tr>
-                            <td><input type="checkbox" name="items[]" value="{{ $item->id }}" class="item-checkbox" data-price="{{ $item->price }}"></td>
-                            <td>
-                            @if ($item->image)
-                            <img src="{{ url("storage/{$item->image}") }}" alt="{{  $item->title}}" style=>
-                            @endif
-                            </td>
-                            <td>{{ $item->title }}</td>
-                            <td>R$ <span class="item-price">{{ number_format($item->price, 2, ',', '.') }}</span></td>
-                            <td><input type="number" min="1" value="1" class="quantity-input" data-price="{{ $item->price }}"></td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-            <button type="button" id="calculateTotal" class="btn-primary">Calcular Total</button>
-            <button type="button" id="scheduleOrder" onclick="showAlert()" class="btn-primary">Agendar Pedido</button>
-        </form>
+        
+
+<form id="itemsForm" method="POST" action="{{ route('cart.add') }}">
+    @csrf
+    <table class="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th></th>
+                <th>Prato</th>
+                <th>Preço</th>
+                <th>Quantidade</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($items as $item)
+            <tr>
+                <td>                    
+                <input type="checkbox" name="items[]" value="{{ $item->id }}" class="item-checkbox" data-price="{{ $item->price }}">
+</td>
+                <td>
+                    @if ($item->image)
+                        <img src="{{ url("storage/{$item->image}") }}" alt="{{ $item->title }}">
+                    @endif
+                </td>
+                <td>{{ $item->title }}</td>
+                <td>R$ <span class="item-price">{{ number_format($item->price, 2, ',', '.') }}</span></td>
+                <td><input type="number" name="quantities[{{ $item->id }}]" min="1" value="1" class="quantity-input" data-price="{{ $item->price }}"></td>
+            </tr>
+            @endforeach
        <div class="total-container">
             Total: R$ <span id="total">0,00</span>
         
+<button type="button" id="calculateTotal" class="btn-primary">Calcular Total</button>
+            <button type="submit" id="scheduleOrder" onclick="showAlert()" class="btn-primary">Agendar Pedido</button>
+        </form>
+   <script>
+       function toggleQuantityInput(checkbox, itemId) {
+        var quantityInput = document.getElementById('quantity-' + itemId);
+        if (checkbox.checked) {
+            quantityInput.disabled = false;
+        } else {
+            quantityInput.disabled = true;
+        }
+    }
 
-    <script>
-        $(document).ready(function() {
             $('#calculateTotal').on('click', function() {
                 let total = 0;
 
@@ -110,14 +120,13 @@
                     const quantityInput = row.find('.quantity-input');
                     const quantity = parseInt(quantityInput.val()) || 1;
                     const price = parseFloat($(this).data('price').toString().replace(',', '.'));
-                    
+
                     total += quantity * price;
                 });
 
                 $('#total').text(total.toFixed(2).replace('.', ','));
             });
-        });
-    </script>
+</script>
     <script>
     function showAlert() {
             alert('O seu pedido foi agendado!');

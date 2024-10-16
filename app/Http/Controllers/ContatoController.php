@@ -15,7 +15,7 @@ class ContatoController extends Controller
     }
 
     // Display the contact form
-    public function create()
+    public function index()
     {
         return view('contato'); // Assuming there's no need to pass existing contatos
     }
@@ -43,6 +43,7 @@ class ContatoController extends Controller
     public function store()
     {
         $contatos = Contato::all(); // Fetch all contatos from the database
-        return view('contatos.index', compact('contatos')); // Assuming you want to display them in a view
-    }
+        return view('contato');
+
+}
 }

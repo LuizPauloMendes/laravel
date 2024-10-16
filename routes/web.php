@@ -6,7 +6,11 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ItemController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContatoController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\ReviewController;
+
 use App\Models\User;
 
 // Book routes
@@ -21,6 +25,16 @@ Route::get('/dashboard', [BookController::class, 'dashboard'])->name('books.dash
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/map', [HomeController::class, 'map'])->name('map');
+Route::get('/chatbot', [HomeController::class, 'chatbot'])->name('chatbot');
+
+
+Route::get('/reserva', [ReservationController::class, 'create'])->name('reserva');
+Route::post('/reservations', [ReservationController::class, 'store'])->name('reservations.store');
+
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
+
+
 
 Route::controller(ContatoController::class)->group(function(){
     Route::get('/contato', 'index')->name('contato.create');
@@ -28,9 +42,17 @@ Route::controller(ContatoController::class)->group(function(){
 });
 
 // routes/web.php
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
 
 
-Route::get('/items', [ItemController::class, 'index']);
+Route::get('/star', [ReviewController::class, 'index'])->name('star');
+Route::post('/star', [ReviewController::class, 'store'])->name('avaliacao.store');
+
+Route::get('/reviews', [ReviewController::class, 'showReviews'])->name('avaliacoes.show');
+
+Route::get('/items', [ItemController::class, 'index'])->name('items');
 Route::post('/calculate-total', [ItemController::class, 'calculateTotal']);
 
 // Login routes

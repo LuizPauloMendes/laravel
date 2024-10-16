@@ -1,17 +1,8 @@
-@extends('layouts.main')
-
-@section('title', 'Dashboard')
+@extends('layouts.app') <!-- Verifique se este layout existe -->
 
 @section('content')
-
-<div>
-    <h1>Livraria</h1>
-</div>
-<div>
-@if(count(books)>0)
-@else
-<p>erro</p>
-@endif
-</div>
-
+    <x-app-layout>
+        <h2>Bem-vindo ao Dashboard</h2>
+        <p>Aqui estão as suas informações.</p>
+    </x-app-layout>
 @endsection

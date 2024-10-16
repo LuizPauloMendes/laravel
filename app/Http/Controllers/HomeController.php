@@ -18,4 +18,8 @@ class HomeController extends Controller
     {
         return view ('map');
     }
+    public function chatbot()
+    {
+        return view ('chatbot');
+    }
 }
