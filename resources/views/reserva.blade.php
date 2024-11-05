@@ -64,7 +64,48 @@
   </tbody>
  
 </table>
+ <div class="container">
+        <h1>Reservas</h1>
 
+        @if($reservations->isEmpty())
+            <p>Não há reservas disponíveis no momento.</p>
+        @else
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th> <a href="{{ route('reservations.index', ['sortColumn' => 'id', 'sortDirection' => $sortDirection]) }}">ID</a></th>
+                        <th><a href="{{ route('reservations.index', ['sortColumn' => 'name', 'sortDirection' => $sortDirection]) }}">Nome</th>
+                       <th><a href="{{ route('reservations.index', ['sortColumn' => 'phone', 'sortDirection' => $sortDirection]) }}">Telefone</th>
+                        <th><a href="{{ route('reservations.index', ['sortColumn' => 'date', 'sortDirection' => $sortDirection]) }}">Data</th>
+                        <th><a href="{{ route('reservations.index', ['sortColumn' => 'time', 'sortDirection' => $sortDirection]) }}">Horário</th>
+                        <th><a href="{{ route('reservations.index', ['sortColumn' => 'people', 'sortDirection' => $sortDirection]) }}">Número de Pessoas</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($reservations as $reservation)
+                        <tr>
+                            <td>{{ $reservation->id }}</td>
+                            <td>{{ $reservation->name }}</td>
+                            <td>{{ $reservation->phone }}</td>
+                            <td>{{ $reservation->date }}</td>
+                            <td>{{ $reservation->time }}</td>
+                            <td>{{ $reservation->people }}</td>
+                            <td>
+                                
+                              
+                                    <form action="{{ route('reservations.destroy', $reservation->id) }}" method="POST" style="display:inline-block;">
+    @csrf
+    <button type="submit" class="btn btn-danger">Excluir</button>
+</form>
+</form>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        @endif
+    </div>
 <style>
         .page, .table{
                 width:55em;

@@ -10,13 +10,30 @@ use Illuminate\Support\Facades\DB;
 use Surfsidemedia\Shoppingcart\Facades\Cart;
 class CartController extends Controller
 {
-    public function index()
-{
-    $orders = Order::with('item')->get();
-    $total = $orders->sum('total'); // Calcula a soma dos preços
-    // Carregando pedidos com os itens associados
-    return view('cart', compact('orders', 'total'));
-}
+   public function index(Request $request)
+   {
+       // Obter a coluna e a direção da ordenação
+       $sortColumn = $request->get('sortColumn', 'id'); // Coluna padrão
+       $sortDirection = $request->get('sortDirection', 'asc'); // Direção padrão
+   
+       // Alternar a direção de ordenação
+       $sortDirection = $sortDirection === 'asc' ? 'desc' : 'asc';
+   
+       // Ordenar os pedidos com base nos parâmetros
+       $orders = Order::orderBy($sortColumn, $sortDirection)->get();
+   
+       // Calcular o total
+       $total = $orders->sum('price');
+   $sortColumn = $request->get('sortColumn', 'id'); // Coluna padrão
+    $sortDirection = $request->get('sortDirection', 'asc'); // Direção padrão
+
+    // Alternar a direção de ordenação
+    $sortDirection = $sortDirection === 'asc' ? 'desc' : 'asc';
+
+    // Ordenar os pedidos com base nos parâmetros
+    $orders = Order::orderBy($sortColumn, $sortDirection)->get();
+       return view('cart', compact('orders', 'total', 'sortColumn', 'sortDirection'));
+   }
 
 public function add(Request $request)
 {
@@ -52,5 +69,17 @@ public function add(Request $request)
     }
 
     return redirect()->route('cart.index')->with('success', 'Pedidos adicionados com sucesso!');
+}
+public function remove($id)
+{
+    // Encontre o pedido pelo ID e remova-o
+    $order = Order::find($id);
+
+    if ($order) {
+        $order->delete();
+        return redirect()->back()->with('success', 'Item removido com sucesso.');
+    }
+
+    return redirect()->back()->with('error', 'Item não encontrado.');
 }
 }

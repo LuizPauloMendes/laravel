@@ -28,11 +28,12 @@ Route::get('/map', [HomeController::class, 'map'])->name('map');
 Route::get('/chatbot', [HomeController::class, 'chatbot'])->name('chatbot');
 
 
-Route::get('/reserva', [ReservationController::class, 'create'])->name('reserva');
+
 Route::post('/reservations', [ReservationController::class, 'store'])->name('reservations.store');
 
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
+Route::delete('/cart/{id}', [CartController::class, 'remove'])->name('cart.remove');
 
 
 
@@ -50,10 +51,14 @@ Route::get('/dashboard', function () {
 Route::get('/star', [ReviewController::class, 'index'])->name('star');
 Route::post('/star', [ReviewController::class, 'store'])->name('avaliacao.store');
 
-Route::get('/reviews', [ReviewController::class, 'showReviews'])->name('avaliacoes.show');
+Route::get('/reviews', [ReviewController::class, 'showReviews'])->name('reviews');
 
 Route::get('/items', [ItemController::class, 'index'])->name('items');
 Route::post('/calculate-total', [ItemController::class, 'calculateTotal']);
+
+Route::get('/reserva', [ReservationController::class, 'index'])->name('reservations.index');
+Route::post('/reserva/{id}', [ReservationController::class, 'destroy'])->name('reservations.destroy');
+
 
 // Login routes
 Route::controller(LoginController::class)->group(function(){

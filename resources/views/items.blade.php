@@ -6,6 +6,12 @@
     <title>Selecionar Itens</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="assets/css/styles.css" rel="stylesheet" />
+    <nav class="navbar navbar-light bg-light static-top">
+            <div class="container">
+                <a class="navbar-brand" href="{{ route('home') }}">Início</a>
+                <a class="btn btn-primary" href="{{route('login.index')}}">Login</a>
+            </div>
+        </nav>
     <style>
         body {
             font-family: Arial, sans-serif;

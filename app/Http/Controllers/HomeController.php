@@ -22,4 +22,8 @@ class HomeController extends Controller
     {
         return view ('chatbot');
     }
+    public function reviews()
+    {
+        return view ('reviews');
+    }
 }

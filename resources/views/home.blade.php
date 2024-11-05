@@ -22,7 +22,7 @@
             <div class="container">
                 <a class="navbar-brand" href="{{ route('home') }}">Início</a>
                 <a class="navbar-brand" href="{{ url('/items') }}">Fazer Pedido</a>
-                <a class="navbar-brand" href="{{ route('reserva') }}">Fazer Reserva</a>
+                <a class="navbar-brand" href="{{ route('reservations.index') }}">Fazer Reserva</a>
                 <a class="navbar-brand" href="{{ route('cart.index') }}">Carrinho</a>
                 <a class="navbar-brand" href="{{ route('star') }}">Avaliar</a>
                  <a class="navbar-brand" href="{{ route('contato.create') }}">Contato</a>

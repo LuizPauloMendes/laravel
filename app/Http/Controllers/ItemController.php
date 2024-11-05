@@ -10,6 +10,7 @@ class ItemController extends Controller
     {
         // Obtém todos os itens do banco de dados
         $items = Item::all();
+        
         return view('items', compact('items'));
     }
 

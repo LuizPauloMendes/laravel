@@ -12,6 +12,12 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="assets/css/styles.css" rel="stylesheet" />
+    <nav class="navbar navbar-light bg-light static-top">
+            <div class="container">
+                <a class="navbar-brand" href="{{ route('home') }}">Início</a>
+                <a class="btn btn-primary" href="{{route('login.index')}}">Login</a>
+            </div>
+        </nav>
     <style>
         .stars {
             cursor: pointer;
@@ -49,6 +55,8 @@
         <textarea name="comment" placeholder="Deixe um comentário (opcional)" rows="4"></textarea><br><br>
 
         <button type="submit">Enviar Avaliação</button>
+
+        <a href="{{ route('reviews') }}">Ver Avaliações</a>
     </form>
 
     <script>
