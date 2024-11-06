@@ -11,10 +11,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-    protected $fillable = ['item_id', 'item_name', 'price', 'quantity', 'total'];
+    protected $fillable = [ 'item_id', 'image', 'item_name', 'price', 'quantity', 'total'];
 
     public function item()
-    {
-        return $this->belongsTo(Item::class, 'item_id');
-    }
+{
+    return $this->belongsTo(Item::class, 'item_id'); // Certifique-se de que 'item_id' está correto
+}
+public function user()
+{
+    return $this->belongsTo(User::class);
+}
 }

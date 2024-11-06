@@ -9,12 +9,6 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="assets/css/styles.css" rel="stylesheet" />
-        <nav class="navbar navbar-light bg-light static-top">
-            <div class="container">
-                <a class="navbar-brand" href="{{ route('home') }}">Início</a>
-                <a class="btn btn-primary" href="{{route('login.index')}}">Login</a>
-            </div>
-        </nav>
 <div class="container">
     <h2>Carrinho de Compras</h2>
 
@@ -28,33 +22,28 @@
 
     @if ($orders && count($orders) > 0)
     <div class="page">
-    
     <table class="table table-bordered">
         <thead>
             <tr>
-                <a href="{{ route('items') }}">Adicionar itens ao carrinho</a>
-                <th><a href="{{ route('cart.index', ['sortColumn' => 'id', 'sortDirection' => $sortDirection]) }}">ID do Pedido</a></th>
-                        <th><a href="{{ route('cart.index', ['sortColumn' => 'item_name', 'sortDirection' => $sortDirection]) }}">Nome do Item</a></th>
-                        <th><a href="{{ route('cart.index', ['sortColumn' => 'quantity', 'sortDirection' => $sortDirection]) }}">Quantidade</a></th>
-                        <th><a href="{{ route('cart.index', ['sortColumn' => 'price', 'sortDirection' => $sortDirection]) }}">Preço</a></th>
-                        <th><a href="{{ route('cart.index', ['sortColumn' => 'price', 'sortDirection' => $sortDirection]) }}">Total</a></th>
-
+                <th>ID do Pedido</th>
+                <th>Nome do Item</th>
+                <th>Quantidade</th>
+                <th>Preço</th>
+                <th>Total</th>
             </tr>
         </thead>
         <tbody>
            @foreach($orders as $order)
     <tr>
         <td>{{ $order->id }}</td>
+            <tr>
+                <td>
+                    <img src="{{ asset('images/' . $order->image) }}" alt="{{ $order->item_name }}" width="50" height="50">
+                </td>
         <td>{{ $order->item_name }}</td>
         <td>{{ $order->quantity }}x</td>
         <td>{{ $order->price }},00</td>
         <td>{{ $order->total }},00</td>
-        <td>
-        <form action="{{ route('cart.remove', $order->id) }}" method="POST" style="display:inline;">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Remover</button>
-                            </form>
 
     </tr>
 @endforeach

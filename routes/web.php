@@ -7,6 +7,7 @@ use App\Http\Controllers\ItemController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContatoController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ReviewController;
@@ -35,6 +36,9 @@ Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
 Route::delete('/cart/{id}', [CartController::class, 'remove'])->name('cart.remove');
 
+Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index');
+Route::post('/payment/store', [PaymentController::class, 'store'])->name('payment.store');
+Route::delete('/payment/{id}', [PaymentController::class, 'destroy'])->name('payment.destroy');
 
 
 Route::controller(ContatoController::class)->group(function(){
