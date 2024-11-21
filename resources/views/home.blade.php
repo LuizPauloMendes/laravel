@@ -41,17 +41,14 @@
         </div>
     </header>
             <section class="container">
-	<div class="slider-wrapper">
-		<div class="slider">
-			<img id="slide-1" src="https://img.freepik.com/fotos-gratis/garcom-feliz-servindo-comida-para-um-grupo-de-amigos-alegres-em-um-pub_637285-12525.jpg" alt="3D rendering of an imaginary orange planet in space" />
-			<img id="slide-2" src="https://static3.depositphotos.com/1003631/209/i/450/depositphotos_2099183-stock-photo-fine-table-setting-in-gourmet.jpg" alt="3D rendering of an imaginary green planet in space" />
-			<img id="slide-3" src="https://img.freepik.com/fotos-gratis/garcom-feliz-segurando-pratos-com-comida-e-olhando-para-a-camera-enquanto-serve-convidados-em-um-restaurante_637285-1707.jpg" alt="3D rendering of an imaginary blue planet in space" />
-		</div>
-		<div class="slider-nav">
-			<a href="#slide-1"></a>
-			<a href="#slide-2"></a>
-			<a href="#slide-3"></a>
-		</div>
+	<div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%;
+ padding-bottom: 0; margin-top: -200px; margin-left:250px; margin-bottom: 0px; overflow: hidden;
+ border-radius: 8px; will-change: transform;">
+  <iframe loading="lazy" style="position: absolute; width: 60%; height: 60%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+    src="https://www.canva.com/design/DAGWYn2p70w/GIFCsTjTwk0ykea17Z3FRw/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+  </iframe>
+</div>
+<a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAGWYn2p70w&#x2F;GIFCsTjTwk0ykea17Z3FRw&#x2F;view?utm_content=DAGWYn2p70w&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">Design</a> by luiz paulo
 	</div>
 </section>
             <div class="text-center mt-5">
@@ -79,88 +76,153 @@
     </footer>
 
     <style>
-        h1 {
-            color: blue;
-            -webkit-text-stroke-width: 1px;
-            -webkit-text-stroke-color: red;
-        }
-
-        footer {
-            color: white;
-        }
-
-        * {
-            animation: fadeIn ease 2s;
-            animation-iteration-count: 1;
-            animation-fill-mode: forwards;
-        }
-
-       body {
-	background-color: #f8fafc;
+   /* Resetando estilos padrão */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-
+html {
+    scroll-behavior: smooth; /* Enables smooth scrolling */
+}
+/* Estilo do corpo */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* Fonte moderna */
+    line-height: 1.6;
+    color: #4A4A4A; /* Cor de texto escura para legibilidade */
+    background-color: #FAFAFA; /* Fundo claro para um visual limpo */
+}
 .texto{
     padding-top: none;
     padding-bottom: none;
     margin-top: -150px;
 }
-.slider-wrapper {
-	position: relative;
-	max-width: 48rem;
-	margin: 0 auto;
-    margin-right: 290px;
+/* Estilo do cabeçalho */
+header {
+    background: url('images/restaurant-bg.jpg') no-repeat center center/cover; /* Imagem de fundo */
+    height: 450px; /* Altura do cabeçalho */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
 }
 
-.slider {
-	display: flex;
-	aspect-ratio: 16 / 9;
-	overflow-x: auto;
-    height:450px;
-    width: auto;
-	scroll-snap-type: x mandatory;
-	scroll-behavior: smooth;
-    margin-top: -200px;
-	box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
-	border-radius: 0.5rem;
-	-ms-overflow-style: none; /* Hide scrollbar IE and Edge */
-	scrollbar-width: none; /* Hide scrollbar Firefox */
+header h1 {
+    font-size: 3.5rem; /* Título grande */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Sombra para destaque */
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
-.slider::-webkit-scrollbar {
-	display: none;
+header p {
+    font-size: 1.6rem; /* Tamanho do subtítulo */
 }
 
-.slider img {
-	flex: 1 0 100%;
-	scroll-snap-align: start;
-	object-fit: cover;
+/* Estilo de navegação */
+nav {
+    background-color: #333; /* Cor de fundo escura */
 }
 
-.slider-nav {
-	display: flex;
-	column-gap: 1rem;
-	position: relative;
-	bottom: 1.25rem;
-	left: 100%;
-    margin-right: px;
-	transform: translateX(-50%);
-	z-index: 1;
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0; /* Espaçamento interno */
 }
 
-.slider-nav a {
-	width: 0.5rem;
-	height: 0.5rem;
-	border-radius: 50%;
-	background-color: #fff;
-	opacity: 0.75;
-	transition: opacity ease 250ms;
+nav ul li {
+    margin: 0 20px;
 }
 
-.slider-nav a:hover {
-	opacity: 1;
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: background 0.3s, color 0.3s; /* Transição suave */
 }
 
+nav a:hover {
+    background: #D3D3D3; /* Cor de fundo no hover */
+    color: #FFD700; /* Cor do texto no hover */
+    border-radius: 10px;
+}
+
+/* Estilo do conteúdo principal */
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+h2 {
+    font-size: 2.5rem; /* Tamanho do título da seção */
+    margin-bottom: 20px;
+    color: #D35400; /* Cor para títulos de seções */
+}
+
+/* Estilo do menu */
+.menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Grade responsiva */
+    gap: 20px;
+}
+
+.menu-item {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s; /* Transição suave */
+}
+
+.menu-item:hover {
+    transform: scale(1.05); /* Efeito de aumento no hover */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* Sombra ao passar o mouse */
+}
+
+.menu-item h3 {
+    font-size: 1.8rem; /* Tamanho do título do item do menu */
+    margin-bottom: 10px;
+}
+
+.menu-item p {
+    color: #666; /* Cor do texto da descrição */
+    margin-bottom: 15px;
+}
+
+/* Estilo do rodapé */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333; /* Cor de fundo escura */
+    color: white;
+}
+
+/* Design Responsivo */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5rem; /* Tamanho do título menor em dispositivos móveis */
+    }
+    
+    header p {
+        font-size: 1.2rem; /* Tamanho do subtítulo menor em dispositivos móveis */
+    }
+
+    nav ul {
+        flex-direction: column; /* Navegação vertical em dispositivos móveis */
+    }
+
+    nav ul li {
+        margin: 10px 0; /* Espaçamento entre os itens do menu */
+    }
+
+    .menu {
+        grid-template-columns: 1fr; /* Um único coluna em dispositivos móveis */
+    }
+}
     </style>
 </body>
 </html>
