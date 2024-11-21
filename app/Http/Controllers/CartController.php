@@ -5,7 +5,7 @@ use App\Models\Item;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\DB;
 class CartController extends Controller
 {
     public function index()
@@ -69,4 +69,14 @@ class CartController extends Controller
         // Redireciona para o carrinho com mensagem de sucesso
         return redirect()->route('cart.index')->with('success', 'Pedidos adicionados com sucesso!');
     }
+    public function cancel()
+{
+    // Assumindo que o carrinho está relacionado ao usuário logado
+    $userId = Auth::id();
+
+    // Esvaziar a tabela 'orders' ou 'cart' do usuário atual
+    DB::table('orders')->where('user_id', $userId)->delete();
+
+    return redirect()->back()->with('success', 'Carrinho esvaziado com sucesso!');
+}
 }

@@ -35,6 +35,8 @@ Route::post('/reservations', [ReservationController::class, 'store'])->name('res
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
 Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
 Route::delete('/cart/{id}', [CartController::class, 'remove'])->name('cart.remove');
+Route::post('/cart/cancel', [CartController::class, 'cancel'])->name('cart.cancel');
+
 
 Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index');
 Route::post('/payment/store', [PaymentController::class, 'store'])->name('payment.store');

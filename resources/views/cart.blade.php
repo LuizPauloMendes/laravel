@@ -36,9 +36,16 @@
     @if ($orders && count($orders) > 0)
     <div class="page">
     <table class="table table-bordered">
+    <h4>Total: {{ number_format($total, 2, ',', '.') }}</h4>
+       <button type="button" class="btn btn-primary">Realizar Pagamento</button>
+        <form action="{{ route('cart.cancel') }}" method="POST" onsubmit="return confirm('Tem certeza que deseja cancelar o pedido?')">
+    @csrf
+    <button type="submit" class="btn btn-danger">Cancelar Pedido</button>
+</form>
         <thead>
             <tr>
                 <th>ID do Pedido</th>
+                <th></th>
                 <th>Nome do Item</th>
                 <th>Quantidade</th>
                 <th>Preço</th>
@@ -56,8 +63,14 @@
         <td>{{ $order->quantity }}x</td>
         <td>{{ $order->price }},00</td>
         <td>{{ $order->total }},00</td>
-
+        <td><form action="{{ route('cart.remove', $order->id) }}" method="POST" style="display:inline;">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Deseja remover este item?')">Remover</button>
+</td>
+         
     </tr>
+    
 @endforeach
         </tbody>
     </table>
@@ -76,8 +89,40 @@ body {
     color: #4A4A4A;
     background-color: #FAFAFA;
 }
+
+.table{
+    width: 700px;
+}
+nav {
+    background-ChatGPTcolor: #333; /* Cor de fundo escura */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0; /* Espaçamento interno */
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: background 0.3s, color 0.3s; /* Transição suave */
+}
+
+nav a:hover {
+    background: #D3D3D3; /* Cor de fundo no hover */
+    color: #FFD700; /* Cor do texto no hover */
+    border-radius: 10px;
+}
+
 .page{
-    width:500px;
+    width:700px;
 }
 /* Estilo do cabeçalho */
 header {
@@ -178,11 +223,9 @@ footer {
     }
 }
       </style>   
-       <h4>Total: {{ number_format($total, 2, ',', '.') }}</h4>
-       <button type="button" class="btn btn-primary">Realizar Pagamento</button>
-        <button type="button" class="btn btn-danger">Cancelar Pedido</button>
-    </div>
+       
 @else
+    <a href="{{ route('items') }}" type="button" class="btn btn-primary">Adicionar Pedido</a>
     <p>Seu carrinho está vazio.</p>
 @endif
 @endsection

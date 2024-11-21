@@ -50,5 +50,34 @@
             </div>
         </div>
     </header>
+    <style>
+    nav {
+    background-color: #333; /* Cor de fundo escura */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0; /* Espaçamento interno */
+}
+
+nav ul li {
+    margin: 0 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: background 0.3s, color 0.3s; /* Transição suave */
+}
+
+nav a:hover {
+    background: #D3D3D3; /* Cor de fundo no hover */
+    color: #FFD700; /* Cor do texto no hover */
+    border-radius: 10px;
+}
+    </style>
 </body>
 </html>
