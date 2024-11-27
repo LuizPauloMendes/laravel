@@ -13,9 +13,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
-                <a class="navbar-brand" href="{{ route('home') }}">Início</a>
-                <a class="btn btn-primary" href="{{route('login.index')}}">Login</a>
-            </div>
+            <a class="navbar-brand" href="{{ route('home') }}">Início</a>
+            <a class="navbar-brand" href="{{ url('/items') }}">Fazer Pedido</a>
+            <a class="navbar-brand" href="{{ route('reservations.index') }}">Fazer Reserva</a>
+            <a class="navbar-brand" href="{{ route('cart.index') }}">Carrinho</a>
+            <a class="navbar-brand" href="{{ route('star') }}">Avaliar</a>
+            <a class="navbar-brand" href="{{ route('contato.create') }}">Contato</a>
+            <a class="navbar-brand" href="{{ route('about') }}">Sobre Nós</a>
+            <a class="btn btn-primary" href="{{ route('login.index') }}">Login</a>
+        </div>
         </nav>
     <title>Avaliações</title>
     <style>
@@ -25,7 +31,8 @@
             background-color:white;
             border-radius:10px;
             border-color:black;
-            margin: 10px 0;
+            margin: 20px 0;
+            margin-left: 60px;
             width:400px;
         }
         .review-grid {

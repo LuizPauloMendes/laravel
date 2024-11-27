@@ -48,7 +48,7 @@ class LoginController extends Controller
         $user->save();
 
         if ($user) {
-            return redirect('/login')->with('success', 'Usuário registrado com sucesso.');
+            return redirect('/')->with('success', 'Usuário registrado com sucesso.');
         } else {
             return redirect()->back()->with('error', 'Falha ao registrar o usuário. Tente novamente.');
         }

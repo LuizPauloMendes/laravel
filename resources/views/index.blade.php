@@ -22,9 +22,15 @@
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
-                <a class="navbar-brand" href="{{ route('home') }}">Início</a>
-                <a class="btn btn-primary" href="{{route('login.index')}}">Login</a>
-            </div>
+            <a class="navbar-brand" href="{{ route('home') }}">Início</a>
+            <a class="navbar-brand" href="{{ url('/items') }}">Fazer Pedido</a>
+            <a class="navbar-brand" href="{{ route('reservations.index') }}">Fazer Reserva</a>
+            <a class="navbar-brand" href="{{ route('cart.index') }}">Carrinho</a>
+            <a class="navbar-brand" href="{{ route('star') }}">Avaliar</a>
+            <a class="navbar-brand" href="{{ route('contato.create') }}">Contato</a>
+            <a class="navbar-brand" href="{{ route('about') }}">Sobre Nós</a>
+            <a class="btn btn-primary" href="{{ route('login.index') }}">Login</a>
+        </div>
         </nav>
         <!-- Masthead-->
         <header class="masthead">
@@ -42,7 +48,8 @@
     
   </a>
   @endcan
-  <a href="{{ url('/items') }}">
+  <a href="{{ url('/items'        </div>
+) }}">
   
     <button>Fazer Pedido</button>
     

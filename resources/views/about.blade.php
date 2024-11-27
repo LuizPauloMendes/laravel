@@ -29,22 +29,26 @@
             <div class="container position-relative">
                  <div class="container">
             <div class="text-center mt-5">
+            <div class="sobre">
                 <h1>Sobre Nós</h1>
             <div class="texto">
-                <h3>Fundado em 1999, por Chef André, nosso restaurante é um reflexo do amor pela cozinha e da valorização dos ingredientes frescos e locais. Acreditamos que cada prato deve contar uma história, e é por isso que nossas receitas são elaboradas com carinho, utilizando técnicas que respeitam as tradições culinárias.</h3>
+                <h3>Fundado em 1999, por Chef André, o restaurante André Delivery é um reflexo do amor pela cozinha e da valorização dos ingredientes frescos e locais. Acreditamos que cada prato deve contar uma história, e é por isso que nossas receitas são elaboradas com carinho, utilizando técnicas que respeitam as tradições culinárias.</h3>
 <h3>
-No Restaurante do André, você encontrará uma variedade de opções que vão desde clássicos reinventados até pratos exclusivos, todos preparados com os melhores ingredientes. Nossa equipe é formada por profissionais dedicados que se empenham em proporcionar um atendimento excepcional, garantindo que cada visita seja uma experiência única.
+No André Delivery, você encontrará uma variedade de opções que vão desde clássicos reinventados até pratos exclusivos, todos preparados com os melhores ingredientes. Nossa equipe é formada por profissionais dedicados que se empenham em proporcionar um atendimento excepcional, garantindo que cada visita seja uma experiência única.
 </h3>
-</div>                
+</div>  
+</div>              
 
 
             <style>
             h1{
-                color: blue;
-                -webkit-text-stroke-width:1px;
-                -webkit-text-stroke-color: red;
+                color:white;
+                font-size: 3.5rem;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); 
+
   
                 }
+               
                 footer{
                     color:white;
                 }
@@ -55,20 +59,10 @@ No Restaurante do André, você encontrará uma variedade de opções que vão d
                     text-align:left;
                     margin:0px;
                     border-radius: 10px;
-                     animation: fadeIn ease 2s;
-                animation-iteration-count: 1;
-                animation-fill-mode: forwards;
-            }
-            
-            @keyframes fadeIn{
-                
-                0%{
-                    opacity: 0.3;
                 }
-                100%{
-                    opacity: 1;
-                }
-            
+                .sobre{
+                    margin-top:-100px;
+                    
                 }
 
             

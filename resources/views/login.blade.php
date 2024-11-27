@@ -30,7 +30,6 @@
                 <div class="text-center mt-5">
                     <h2>Login</h2>
                     @if (session()->has('success'))
-                        {{ session()->get('success') }} href="{{ route('login.destroy') }}">Logout</a>
                     @else
                     @endif
 

@@ -18,9 +18,15 @@
 <body>
     <!-- Navigation-->
     <nav class="navbar navbar-light bg-light static-top">
-        <div class="container">
-            <a class="navbar-brand" href="{{ route('home') }}">Home</a>
-            <a class="btn btn-primary" href="/login">Login</a>
+            <div class="container">
+            <a class="navbar-brand" href="{{ route('home') }}">Início</a>
+            <a class="navbar-brand" href="{{ url('/items') }}">Fazer Pedido</a>
+            <a class="navbar-brand" href="{{ route('reservations.index') }}">Fazer Reserva</a>
+            <a class="navbar-brand" href="{{ route('cart.index') }}">Carrinho</a>
+            <a class="navbar-brand" href="{{ route('star') }}">Avaliar</a>
+            <a class="navbar-brand" href="{{ route('contato.create') }}">Contato</a>
+            <a class="navbar-brand" href="{{ route('about') }}">Sobre Nós</a>
+            <a class="btn btn-primary" href="{{ route('login.index') }}">Login</a>
         </div>
     </nav>
     <!-- Masthead-->
@@ -28,6 +34,7 @@
         <div class="container position-relative">
             <div class="page">
                 <div class="text-center mt-5">
+                <div class="texto">
                     <h2>Contato</h2>
 
                     <form method="POST" action="{{ route('contato.create') }}">
@@ -61,6 +68,11 @@
                 height:350px;
                 width:500px;
             }
+            .texto {
+        padding-top: none;
+        padding-bottom: none;
+        margin-top: -150px;
+    }
         </style>
     </header>
 </body>
